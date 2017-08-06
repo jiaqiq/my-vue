@@ -28,8 +28,15 @@ jdk需要从网上下载
 2.http://blog.csdn.net/comhaqs/article/details/52698766 参考
 
 3.cmd中输入nslookup mint-ui.github.io 8.8.8.8
-得到  Addresses:2a04:4e42:11::403
+得到  Addresses:2a04:4e42:11::403 (这个好像是变动的)
       Aliases:mint-ui.github.io 
+      右侧小手机示例：
+      nslookup elemefe.github.io 8.8.8.8
+      非权威应答:
+      名称:    sni.github.map.fastly.net
+      Addresses:  2a04:4e42:11::403
+                151.101.77.147
+      Aliases:  elemefe.github.io
 
 4.修改 hosts 在最后加上2a04:4e42:11::403   mint-ui.github.io 保存
 
