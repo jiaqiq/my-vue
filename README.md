@@ -48,3 +48,10 @@ jdk需要从网上下载
 1.element-ui   http://element.eleme.io/#/zh-CN/
 2.iView        https://www.iviewui.com/
 
+vue 的 blocks 和 items 的双重循环显示的图标显示的问题
+1.图标循环显示方式一
+<el-col :span="3">
+   <div :class="circleClassArr[index1]" class="circle">
+       <i :class="iconClassArr[index1]"></i>
+   </div>
+</el-col>
