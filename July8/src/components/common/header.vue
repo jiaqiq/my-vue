@@ -9,6 +9,8 @@
         <el-menu-item index="2-3">选项3</el-menu-item>
       </el-submenu>
       <el-menu-item index="3"><a href="http://element.eleme.io" target="_blank">Element-UI</a></el-menu-item>
+      <el-menu-item index="4"><a href="http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html" target="_blank">Flex</a></el-menu-item>
+      <el-menu-item index="4"><a href="http://www.ruanyifeng.com/blog/2015/07/flex-examples.html" target="_blank">Flex实例</a></el-menu-item>
     </el-menu>
 </div>
 
