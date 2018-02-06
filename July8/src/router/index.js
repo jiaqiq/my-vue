@@ -1,6 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import home from '@/components/pages/home'
+import Index from '@/components/pages/index'
+import HomeContent from '@/components/pages/homeContent'
+import LayoutTest from '@/components/pages/layoutTest'
+import Test from '@/components/pages/test'
 
 Vue.use(Router)
 
@@ -8,8 +11,25 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'home',
-      component: home
+      name: 'index',
+      component: Index,
+      children: [
+        {
+          path: 'homeContent',
+          name: 'homeContent',
+          component: HomeContent
+        },
+        {
+          path: 'layoutTest',
+          name: 'layoutTest',
+          component: LayoutTest
+        },
+        {
+          path: 'test',
+          name: 'test',
+          component: Test
+        }
+      ]
     }
   ]
 })
