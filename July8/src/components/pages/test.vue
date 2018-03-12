@@ -1,24 +1,23 @@
 <template>
     <div class="box">
-        测试区
-        <ul class="list">
-            <li class="item" v-for="(item, index) in list" :key="item" :class="{'active':ind === index}" @mouseenter="changeBgc(index)">{{item}}</li>
-        </ul>
+        <left-nav style="margin-top:5px;"></left-nav>
     </div>
 </template>
 
 <script>
+import leftNav from '@/components/common/leftNav';
+
 export default {
+    components: {
+        leftNav
+    },
     data() {
-        return {
-            list: ['苹果', '香蕉', '菠萝', '芒果'],
-            ind: ''
-        }
+       return {
+           
+       }
     },
     methods: {
-        changeBgc: function (index) {
-            this.ind = index
-        }
+        
     }
 }
 </script>

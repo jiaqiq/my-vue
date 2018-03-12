@@ -1,10 +1,10 @@
 <template>
     <div id="box">
         <div class="block">
-            <div class="logo-container"></div>
+            <div class="logo-container" :style="dataInfo.logoStyle"></div>
             <div class="info-container">
-                <h3 class="title">{{block.title}}</h3>
-                <p class="detail">{{block.detail}}</p>
+                <h3 class="title">{{dataInfo.title}}</h3>
+                <p class="detail">{{dataInfo.detail}}</p>
             </div>
         </div>
     </div>
@@ -13,14 +13,14 @@
 <script>
 export default {
     props: {
-
+        dataInfo: {
+            type: Object,
+            required: true
+        }
     },
     data() {
         return {
-            block: {
-                title: '模块一',
-                detail: '详细内容详细内容详细内容详细内容'
-            }
+            
         }
     }
 }
@@ -31,12 +31,11 @@ export default {
   .block {
     width: 260px;
     height: 300px;
-    border: 1px solid #666;
+    border: 1px dashed #666;
     box-sizing: border-box;
     border-radius: 5px;
     .logo-container {
       height: 150px;
-      background: purple;
     }
     .info-container {
       box-sizing: border-box;
