@@ -2,7 +2,7 @@
   <div class="box">
     <el-row style="margin-top:20px;" v-for="block in blocks" :key="block.items.title">
       <el-col :span="6" v-for="item in block.items" :key="item.title">
-        <block class="block" :dataInfo="item"></block>
+          <block class="block" :dataInfo="item"></block>
       </el-col>
     </el-row>
   </div>
@@ -94,6 +94,9 @@ export default {
 
 <style lang="scss" scoped>
 .box {
+  .block {
+    display: inline-block;
+  }
 }
 </style>
 
