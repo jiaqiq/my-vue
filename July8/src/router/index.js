@@ -4,6 +4,7 @@ import Index from '@/components/pages/index'
 import HomeContent from '@/components/pages/homeContent'
 import LayoutTest from '@/components/pages/layoutTest'
 import Test from '@/components/pages/test'
+import mockTest from '@/components/pages/mockTest'
 
 Vue.use(Router)
 
@@ -28,6 +29,11 @@ export default new Router({
           path: 'test',
           name: 'test',
           component: Test
+        },
+        {
+          path: 'mockTest',
+          name: 'mockTest',
+          component: mockTest
         }
       ]
     }

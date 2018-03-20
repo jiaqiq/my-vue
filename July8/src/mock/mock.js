@@ -1,6 +1,6 @@
 import Mock from 'mockjs'; //es6语法引入mock模块
 
-export default Mock.mock('http://mock.api.com', { //输出数据
+export default Mock.mock('http://www.mockapi.com', { //输出数据
 
   'name': '@name', //随机生成姓名
 
