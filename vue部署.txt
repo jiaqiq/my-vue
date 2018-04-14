@@ -1,0 +1,31 @@
+tomcat下载可以到http://tomcat.apache.org/ 下载core 下的32-bit/64-bit Windows Service Installer(pgp,md5,sha1).zip and .gz为免安装的
+
+tomcat 启动是bin文件夹下的starup.bat关闭为shutdown.bat
+
+tomcat 启动窗口闪退  
+
+可以  在startup.bat 中end 后面 加上pause
+
+也可以  把上面的call 。。里面的start 修改为run 查看详细的错误信息
+
+1.，目前我遇到的闪退问题是jdk 版本问题（原本是jdk1.7）   重新下载个解决(jdk1.8)
+
+2.关于使用vue 的 npm run build 部署项目到 Tomcat上时遇到的问题：大多是路径问题   
+解决方案：将config 中的index.js 中的 assetsPublicPath:'/'改为  assetsPublicPath:‘./’总共更改两处，还有端口是8080
+
+
+有关的环境变量配置
+CATALINA_HOME
+C:\Program Files\Apache Software Foundation\Tomcat 9.0
+
+CLASS_PATH
+.;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar;
+
+JAVA_HOME
+C:\Program Files (x86)\Java\jdk1.8.0_144\
+
+TOMCAT_HOME
+C:\Program Files\Apache Software Foundation\Tomcat 9.0
+
+Path
+C:\ProgramData\Oracle\Java\javapath;%APPCAN_PATH%;%APPCAN_PATH%;%APPCAN_PATH%;%SystemRoot%\system32;%SystemRoot%;%SystemRoot%\System32\Wbem;%SYSTEMROOT%\System32\WindowsPowerShell\v1.0\;C:\Program Files\nodejs;C:\Program Files\nodejs\;C:\Program Files\Git\cmd;C:\Program Files\TortoiseGit\bin;C:\Program Files\VisualSVN Server\bin;C:\Program Files\TortoiseSVN\bin;.;%JAVA_HOME%\bin;%CATALINA_HOME%\bin
