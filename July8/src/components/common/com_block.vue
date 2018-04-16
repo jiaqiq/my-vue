@@ -1,6 +1,6 @@
 <template>
     <div id="box">
-        <div class="block" @click="show(dataInfo.id)">
+        <div class="block" @click="show">
             <div class="logo-container" :style="dataInfo.logoStyle"></div>
             <div class="info-container">
                 <h3 class="title">{{dataInfo.title}}</h3>
@@ -12,23 +12,21 @@
 
 <script>
 export default {
-    props: {
-        dataInfo: {
-            type: Object,
-            required: true
-        }
-    },
-    data() {
-        return {
-            
-        }
-    },
-    methods: {
-        show(id) {
-            alert(id)
-        }
+  props: {
+    dataInfo: {
+      type: Object,
+      required: true
     }
-}
+  },
+  data() {
+    return {};
+  },
+  methods: {
+    show() {
+      this.$emit("show", this.dataInfo.id);
+    }
+  }
+};
 </script>
 
 <style lang="scss" scoped>
