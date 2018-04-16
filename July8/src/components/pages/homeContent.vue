@@ -20,6 +20,7 @@ export default {
         {
           items: [
             {
+              id: 1,
               title: '标题1',
               detail: '暂无详情',
               logoStyle: {
@@ -27,6 +28,7 @@ export default {
               }
             },
             {
+              id: 2,
               title: '标题2',
               detail: '暂无详情',
               logoStyle: {
@@ -34,6 +36,7 @@ export default {
               }
             },
             {
+              id: 3,
               title: '标题3',
               detail: '暂无详情',
               logoStyle: {
@@ -41,6 +44,7 @@ export default {
               }
             },
             {
+              id: 4,
               title: '标题4',
               detail: '暂无详情',
               logoStyle: {
@@ -52,6 +56,7 @@ export default {
         {
           items: [
             {
+              id: 5,
               title: '标题5',
               detail: '暂无详情',
               logoStyle: {
@@ -59,6 +64,7 @@ export default {
               }
             },
             {
+              id: 6,
               title: '标题6',
               detail: '暂无详情',
               logoStyle: {
@@ -66,6 +72,7 @@ export default {
               }
             },
             {
+              id: 7,
               title: '标题7',
               detail: '暂无详情',
               logoStyle: {
@@ -73,6 +80,7 @@ export default {
               }
             },
             {
+              id: 8,
               title: '标题8',
               detail: '暂无详情',
               logoStyle: {
@@ -82,11 +90,11 @@ export default {
           ]
         }
       ]
-    }
+    } 
   },
 
   methods: {
-
+   
   }
 
 }

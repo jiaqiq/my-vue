@@ -1,6 +1,6 @@
 <template>
     <div id="box">
-        <div class="block">
+        <div class="block" @click="show(dataInfo.id)">
             <div class="logo-container" :style="dataInfo.logoStyle"></div>
             <div class="info-container">
                 <h3 class="title">{{dataInfo.title}}</h3>
@@ -21,6 +21,11 @@ export default {
     data() {
         return {
             
+        }
+    },
+    methods: {
+        show(id) {
+            alert(id)
         }
     }
 }
