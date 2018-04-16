@@ -1,11 +1,12 @@
 <template>
     <div id="box">
         <div class="block" @click="show">
-            <div class="logo-container" :style="dataInfo.logoStyle"></div>
+            <div class="logo-container" :style="'background-image:url('+dataInfo.imgUrl+')'"></div>
             <div class="info-container">
                 <h3 class="title">{{dataInfo.title}}</h3>
                 <p class="detail">{{dataInfo.detail}}</p>
             </div>
+            <!-- <div :style="'background: url('+imgUrl+')'"></div> -->
         </div>
     </div>
 </template>
@@ -19,7 +20,9 @@ export default {
     }
   },
   data() {
-    return {};
+    return {
+    //   imgUrl: require("../../assets/imgs/1.jpg")
+    };
   },
   methods: {
     show() {
@@ -34,11 +37,13 @@ export default {
   .block {
     width: 260px;
     height: 300px;
-    border: 1px dashed #666;
+    border: 1px solid #666;
     box-sizing: border-box;
     border-radius: 5px;
     .logo-container {
       height: 150px;
+      background-size: cover;
+      background-repeat: no-repeat;
     }
     .info-container {
       box-sizing: border-box;

@@ -30,7 +30,8 @@ export default {
               detail: "暂无详情",
               logoStyle: {
                 background: "#d0e0f8"
-              }
+              },
+              imgUrl: require('../../assets/imgs/1.jpg') 
             },
             {
               id: 2,
@@ -38,7 +39,8 @@ export default {
               detail: "暂无详情",
               logoStyle: {
                 background: "#ccc"
-              }
+              },
+              imgUrl: require('../../assets/imgs/2.jpg')
             },
             {
               id: 3,
@@ -46,7 +48,8 @@ export default {
               detail: "暂无详情",
               logoStyle: {
                 background: "blue"
-              }
+              },
+              imgUrl: require('../../assets/imgs/3.jpg')
             },
             {
               id: 4,
@@ -54,7 +57,8 @@ export default {
               detail: "暂无详情",
               logoStyle: {
                 background: "red"
-              }
+              },
+              imgUrl: require('../../assets/imgs/4.jpg')
             }
           ]
         },
@@ -66,7 +70,8 @@ export default {
               detail: "暂无详情",
               logoStyle: {
                 background: "#d0e0f8"
-              }
+              },
+              imgUrl: require('../../assets/imgs/5.jpg')
             },
             {
               id: 6,
@@ -74,7 +79,8 @@ export default {
               detail: "暂无详情",
               logoStyle: {
                 background: "#ccc"
-              }
+              },
+              imgUrl: require('../../assets/imgs/6.jpg')
             },
             {
               id: 7,
@@ -82,7 +88,8 @@ export default {
               detail: "暂无详情",
               logoStyle: {
                 background: "blue"
-              }
+              },
+              imgUrl: require('../../assets/imgs/7.jpg')
             },
             {
               id: 8,
@@ -90,7 +97,8 @@ export default {
               detail: "暂无详情",
               logoStyle: {
                 background: "red"
-              }
+              },
+              imgUrl: require('../../assets/imgs/8.jpg')
             }
           ]
         }
