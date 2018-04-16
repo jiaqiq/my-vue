@@ -7,9 +7,11 @@ import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-default/index.css'
 import mock from './mock/mock'
 import axios from 'axios'
+import vueDrag from 'vue-dragging'
 
 Vue.config.productionTip = false
 Vue.use(ElementUI)
+Vue.use(vueDrag)
 Vue.prototype.$axios = axios
 
 /* eslint-disable no-new */

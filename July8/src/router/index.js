@@ -5,6 +5,7 @@ import HomeContent from '@/components/pages/homeContent'
 import LayoutTest from '@/components/pages/layoutTest'
 import Test from '@/components/pages/test'
 import mockTest from '@/components/pages/mockTest'
+import drag from '@/components/pages/drag'
 
 Vue.use(Router)
 
@@ -34,6 +35,11 @@ export default new Router({
           path: 'mockTest',
           name: 'mockTest',
           component: mockTest
+        }, 
+        {
+          path: 'drag',
+          name: 'drag',
+          component: drag
         }
       ]
     }

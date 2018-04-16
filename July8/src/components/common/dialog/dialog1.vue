@@ -1,6 +1,6 @@
 <template>
   <div class="box">
-    <el-dialog title="收货地址" :visible.sync="dialogFormVisible">
+    <el-dialog title="Vue-dragging" :visible.sync="dialogFormVisible" :close-on-click-modal="false">
         <el-form :model="form">
             <el-form-item label="活动名称" :label-width="formLabelWidth">
             <el-input v-model="form.name" auto-complete="off"></el-input>
@@ -52,3 +52,20 @@ export default {
   }
 };
 </script>
+
+<style lang="scss">
+.box {
+  // 重置dialog样式
+  .el-dialog--small {
+    width: 90%;
+    height: 80%;
+    position: relative;
+    overflow: hidden;
+  }
+  .el-dialog__footer {
+    position: absolute;
+    bottom: 10px;
+    right: 15px;
+  }
+}
+</style>
