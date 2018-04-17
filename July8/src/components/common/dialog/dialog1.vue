@@ -1,26 +1,21 @@
 <template>
   <div class="box">
-    <el-dialog title="Vue-dragging" :visible.sync="dialogFormVisible" :close-on-click-modal="false">
-        <el-form :model="form">
-            <el-form-item label="活动名称" :label-width="formLabelWidth">
-            <el-input v-model="form.name" auto-complete="off"></el-input>
-            </el-form-item>
-            <el-form-item label="活动区域" :label-width="formLabelWidth">
-            <el-select v-model="form.region" placeholder="请选择活动区域">
-                <el-option label="区域一" value="shanghai"></el-option>
-                <el-option label="区域二" value="beijing"></el-option>
-            </el-select>
-            </el-form-item>
-        </el-form>
-        <div slot="footer" class="dialog-footer">
-            <el-button @click="dialogFormVisible = false">取 消</el-button>
-            <el-button type="primary" @click="dialogFormVisible = false">确 定</el-button>
-        </div>
+    <el-dialog title="收货地址" :visible.sync="dialogTableVisible">
+      <el-table :data="gridData">
+        <el-table-column property="date" label="日期" width="150" header-align="center"></el-table-column>
+        <el-table-column property="name" label="姓名" width="200" header-align="center"></el-table-column>
+        <el-table-column property="address" label="地址" header-align="center"></el-table-column>
+      </el-table>
+      <div slot="footer" class="dialog-footer">
+          <el-button @click="dialogTableVisible = false">取 消</el-button>
+          <el-button type="primary" @click="dialogTableVisible = false">确 定</el-button>
+      </div>
     </el-dialog>
   </div>
 </template>
 
 <script>
+import gridData from '../../../../static/js/table.js'
 export default {
   props: {
     show: {
@@ -30,25 +25,24 @@ export default {
   },
   watch: {
     show: function(val) {
-      this.dialogFormVisible = true;
+      this.dialogTableVisible = true;
     }
   },
 
   data() {
     return {
-      dialogFormVisible: false,
+      dialogTableVisible: false,
       formLabelWidth: "120px",
-      form: {
-        name: "",
-        region: "",
-        date1: "",
-        date2: "",
-        delivery: false,
-        type: [],
-        resource: "",
-        desc: ""
-      }
+      gridData: []
     };
+  },
+  mounted() {
+    this.getTableData();
+  },
+  methods: {
+    getTableData() {
+      this.gridData = gridData;
+    }
   }
 };
 </script>

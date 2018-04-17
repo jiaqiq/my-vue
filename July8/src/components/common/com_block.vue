@@ -19,6 +19,9 @@ export default {
       required: true
     }
   },
+  watch: {
+   
+  },
   data() {
     return {
       //   imgUrl: require("../../assets/imgs/1.jpg")

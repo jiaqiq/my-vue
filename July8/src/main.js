@@ -12,7 +12,7 @@ import vueDrag from 'vue-dragging'
 Vue.config.productionTip = false
 Vue.use(ElementUI)
 Vue.use(vueDrag)
-Vue.prototype.$axios = axios
+Vue.prototype.$http = axios
 
 /* eslint-disable no-new */
 new Vue({
