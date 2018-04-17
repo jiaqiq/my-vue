@@ -19,6 +19,7 @@
       </el-submenu>
       <el-menu-item index="2" :route="{ path:'/test' }">测试</el-menu-item>
       <el-menu-item index="3" :route="{ path:'/drag' }">Vue-dragging</el-menu-item>
+      <el-menu-item index="4" :route="{ path:'/html5drag' }">HTML5-drag</el-menu-item>
     </el-menu>
   </div>
 </template>

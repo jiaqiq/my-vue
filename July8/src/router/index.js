@@ -6,6 +6,7 @@ import LayoutTest from '@/components/pages/layoutTest'
 import Test from '@/components/pages/test'
 import mockTest from '@/components/pages/mockTest'
 import drag from '@/components/pages/drag'
+import html5drag from '@/components/pages/html5_drag/html5drag'
 
 Vue.use(Router)
 
@@ -40,6 +41,11 @@ export default new Router({
           path: 'drag',
           name: 'drag',
           component: drag
+        },
+        {
+          path: 'html5drag',
+          name: 'html5drag',
+          component: html5drag
         }
       ]
     }
