@@ -29,8 +29,8 @@ export default {
 .box {
   list-style: none;
   overflow-y: auto;
-  height: 400px;
-  width: 280px;
+  height: 460px;
+  width: 300px;
   padding: 10px;
   background-color: #eeeeee;
 }

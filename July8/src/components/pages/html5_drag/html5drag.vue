@@ -1,10 +1,7 @@
 <template>
   <div class="box">
-      
-        
-     
       <Container>
-          <el-row>
+          <el-row :gutter="20">
             <el-col :span="8" v-for="(item, index) in taskList" :key="index">
                 <Box 
                     @dragChange="dragChange" :title="item.title" :index="index">

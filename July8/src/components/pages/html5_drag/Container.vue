@@ -10,6 +10,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 .container {
+  border-radius: 5px;
   border: 1px solid #e9eaec;
   width: 1000px;
   height: 500px;
