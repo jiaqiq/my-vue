@@ -1,11 +1,18 @@
 <template>
   <div class="box">
+      
+        
+     
       <Container>
-        <Box v-for="(item, index) in taskList" :key="index"
-        @dragChange="dragChange" :title="item.title" :index="index">
-            <Card v-for="(innerItem, innerIndex) in item.tasks" :key="index + '-' + innerIndex" 
-            :data="innerItem" :innerIndex="innerIndex" :index="index"></Card>
-        </Box>
+          <el-row>
+            <el-col :span="8" v-for="(item, index) in taskList" :key="index">
+                <Box 
+                    @dragChange="dragChange" :title="item.title" :index="index">
+                    <Card v-for="(innerItem, innerIndex) in item.tasks" :key="index + '-' + innerIndex" 
+                    :data="innerItem" :innerIndex="innerIndex" :index="index"></Card>
+                </Box>
+            </el-col>
+        </el-row>
       </Container>
   </div>
 </template>

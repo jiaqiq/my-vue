@@ -1,11 +1,6 @@
 <template>
   <div class="container">
-    <el-row>
-      <el-col :span="8">
-         <slot></slot>
-      </el-col>
-    </el-row>
-   
+    <slot></slot>
   </div>
 </template>
 <script>
