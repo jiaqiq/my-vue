@@ -21,7 +21,7 @@ export default {
   },
   data() {
     return {
-    //   imgUrl: require("../../assets/imgs/1.jpg")
+      //   imgUrl: require("../../assets/imgs/1.jpg")
     };
   },
   methods: {
@@ -34,10 +34,19 @@ export default {
 
 <style lang="scss" scoped>
 #box {
+  .block:hover {
+    cursor: pointer;
+    transition: all 0.3s linear;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px #e5e5e5;
+  }
+
   .block {
-    width: 260px;
-    height: 300px;
-    border: 1px solid #666;
+    //在此加入防止离开没有过渡
+    transition: all 0.3s linear;
+    width: 220px;
+    height: 280px;
+    border: 1px solid #e5e5e5;
     box-sizing: border-box;
     border-radius: 5px;
     .logo-container {
@@ -51,7 +60,8 @@ export default {
       padding: 18px;
       .title {
         font-size: 16px;
-        font-weight: 500;
+        font-weight: 400;
+        color: #000;
         line-height: 22px;
       }
       .detail {

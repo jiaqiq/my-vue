@@ -1,7 +1,7 @@
 <template>
   <div class="box">
     <el-row style="margin-top:20px;" v-for="block in blocks" :key="block.items.title">
-      <el-col :span="6" v-for="item in block.items" :key="item.title">
+      <el-col class="lay" v-for="item in block.items" :key="item.title">
           <block class="block" :dataInfo="item" @show="show"></block>
       </el-col>
     </el-row>
@@ -26,79 +26,97 @@ export default {
           items: [
             {
               id: 1,
-              title: "标题1",
-              detail: "暂无详情",
+              title: "无需代码一键生成",
+              detail: "前端小白入门",
               logoStyle: {
                 background: "#d0e0f8"
               },
-              imgUrl: require('../../assets/imgs/1.jpg') 
+              imgUrl: require("../../assets/imgs/1.jpg")
             },
             {
               id: 2,
-              title: "标题2",
-              detail: "暂无详情",
+              title: "五站合一全网覆盖",
+              detail: "C++零基础入门  热门编程语言  编程入门  二级考试必备",
               logoStyle: {
                 background: "#ccc"
               },
-              imgUrl: require('../../assets/imgs/2.jpg')
+              imgUrl: require("../../assets/imgs/2.jpg")
             },
             {
               id: 3,
-              title: "标题3",
-              detail: "暂无详情",
+              title: "百人技术团队迭代效率高",
+              detail: "MAYA动画入门课-飞机飞行",
               logoStyle: {
                 background: "blue"
               },
-              imgUrl: require('../../assets/imgs/3.jpg')
+              imgUrl: require("../../assets/imgs/3.jpg")
             },
             {
               id: 4,
-              title: "标题4",
-              detail: "暂无详情",
+              title: "20余项国家软著与专利",
+              detail: "Java Web强化：SSM框架整合",
               logoStyle: {
                 background: "red"
               },
-              imgUrl: require('../../assets/imgs/4.jpg')
+              imgUrl: require("../../assets/imgs/4.jpg")
+            },
+            {
+              id: 5,
+              title: "制作周期短 拖拽试搭建",
+              detail: "程序猿的内功修炼，学好算法与数据结构",
+              logoStyle: {
+                background: "red"
+              },
+              imgUrl: require("../../assets/imgs/5.jpg")
             }
           ]
         },
         {
           items: [
             {
-              id: 5,
-              title: "标题5",
-              detail: "暂无详情",
+              id: 6,
+              title: "专属定制 极致体验",
+              detail: "Java零基础入门",
               logoStyle: {
                 background: "#d0e0f8"
               },
-              imgUrl: require('../../assets/imgs/5.jpg')
-            },
-            {
-              id: 6,
-              title: "标题6",
-              detail: "暂无详情",
-              logoStyle: {
-                background: "#ccc"
-              },
-              imgUrl: require('../../assets/imgs/6.jpg')
+              imgUrl: require("../../assets/imgs/6.jpg")
             },
             {
               id: 7,
-              title: "标题7",
-              detail: "暂无详情",
+              title: "标准化建站，不满意退款",
+              detail: "ES6快速入门",
               logoStyle: {
-                background: "blue"
+                background: "#ccc"
               },
-              imgUrl: require('../../assets/imgs/7.jpg')
+              imgUrl: require("../../assets/imgs/7.jpg")
             },
             {
               id: 8,
-              title: "标题8",
-              detail: "暂无详情",
+              title: "商城、营销等一站式服务",
+              detail: "PHP从基础语法到原生项目开发",
+              logoStyle: {
+                background: "blue"
+              },
+              imgUrl: require("../../assets/imgs/8.jpg")
+            },
+            {
+              id: 9,
+              title: "选好云、用好云、管好云",
+              detail: "SpringBoot+MyBatis搭建迷你小程序",
               logoStyle: {
                 background: "red"
               },
-              imgUrl: require('../../assets/imgs/8.jpg')
+              imgUrl: require("../../assets/imgs/9.jpg")
+            },
+            {
+              id: 10,
+              title: "国家高新技术企业",
+              detail: "毕设项目  SSM到Spring Boot  从零开发校园商铺平台",
+              logoStyle: {
+                background: "red"
+              },
+              imgUrl: require("../../assets/imgs/10.jpg")
             }
           ]
         }
@@ -119,8 +137,13 @@ export default {
 
 <style lang="scss" scoped>
 .box {
+  width:90%;
+  margin: 0 auto;
   .block {
     display: inline-block;
+  }
+  .lay {
+    width: 20%;
   }
 }
 </style>
