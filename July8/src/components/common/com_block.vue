@@ -48,7 +48,7 @@ export default {
     //在此加入防止离开没有过渡
     transition: all 0.3s linear;
     width: 220px;
-    height: 280px;
+    height: 260px;
     border: 1px solid #e5e5e5;
     box-sizing: border-box;
     border-radius: 5px;

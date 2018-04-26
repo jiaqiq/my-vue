@@ -1,7 +1,7 @@
 <template>
-  <div class="box">
+  <div id="header">
     <el-menu :default-active="activeIndex" mode="horizontal" @select="handleSelect" router>
-      <el-menu-item index="0" :route="{ path:'/homeContent' }">首页</el-menu-item>
+      <el-menu-item index="0" :route="{ path:'/content/home' }">首页</el-menu-item>
       <el-submenu index="1">
         <template slot="title">学习网站</template>
         <el-menu-item index="1-1">
@@ -20,16 +20,17 @@
       <el-menu-item index="2" :route="{ path:'/test' }">测试</el-menu-item>
       <el-menu-item index="3" :route="{ path:'/drag' }">Vue-dragging</el-menu-item>
       <el-menu-item index="4" :route="{ path:'/html5drag' }">HTML5-drag</el-menu-item>
+      <el-menu-item index="4" :route="{ path:'/content/layoutTest' }">管理</el-menu-item>
     </el-menu>
   </div>
 </template>
 
 <script>
-import HomeContent from '@/components/pages/homeContent'
+import content from '@/components/pages/content'
 import Test from '@/components/pages/test'
 export default {
   components: {
-    HomeContent,
+    content,
     Test
   },
   data() {

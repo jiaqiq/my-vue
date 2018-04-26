@@ -1,5 +1,5 @@
 <template>
-  <div class="box">
+  <div id="index">
     <myheader></myheader>
     <router-view></router-view>
   </div>
@@ -15,7 +15,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+  #index {
+    height: 100%;
+  }
 </style>
 
 
