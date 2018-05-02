@@ -8,6 +8,7 @@ import mockTest from '@/components/pages/mockTest'
 import dragging from '@/components/pages/dragging'
 import drag from '@/components/pages/html5_drag/drag'
 import home from '@/components/pages/home'
+import personList from '@/components/pages/personList'
 
 Vue.use(Router)
 
@@ -48,6 +49,11 @@ export default new Router({
               path: 'drag',
               name: 'drag',
               component: drag
+            },
+            {
+              path: 'personList',
+              name: 'personList',
+              component: personList
             }
           ]
         }

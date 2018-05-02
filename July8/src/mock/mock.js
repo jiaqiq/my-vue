@@ -1,10 +1,11 @@
 import Mock from 'mockjs'; //es6语法引入mock模块
 
-export default Mock.mock('http://www.mockapi.com', { //输出数据
+export default Mock.mock('/api/personList', { //输出数据
+  'tableData|100': [{
+    'date': '@date()', //随机生成日期
 
-  'name': '@name', //随机生成姓名
+    'name': '@name', //随机生成姓名
 
-  'age|1-10': 10
-
-  //还可以自定义其他数据
+    'address': '@county(true)' //随机生成地址
+  }]
 });

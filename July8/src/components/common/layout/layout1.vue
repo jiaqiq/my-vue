@@ -5,7 +5,7 @@
                 <slot name="layout_l"></slot>
             </el-col>
             <el-col :span="span_r" class="span_r">
-                <el-row>
+                <el-row class="layout_r">
                     <el-col>
                         <slot name="layout_r"></slot>
                     </el-col>
@@ -60,6 +60,10 @@ export default {
     //   background: yellow;
   }
   .span_r {
+    .layout_r {
+      height: calc(100% - 50px);
+      overflow: auto;
+    }
     height: 100%;
     background: #fafafa;
     position: relative;

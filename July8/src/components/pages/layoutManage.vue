@@ -9,7 +9,7 @@
             </template>
             <template slot="layout_rf">
                 <div>
-                    <pagination></pagination>
+                    <!-- <pagination :total="total"></pagination> -->
                 </div>
             </template>
         </layout1>
@@ -28,17 +28,28 @@ export default {
   },
 
   data() {
-    return {};
+    return {
+      total: 0
+    };
   },
-  mounted() {},
-  methods: {}
+  mounted() {
+    this.getListTotal();
+  },
+  methods: {
+    getListTotal() {
+      this.$http("/api/personList").then(res => {
+        console.log(222, res);
+        this.total = res.data.tableData.length;
+      });
+    }
+  }
 };
 </script>
 
 <style lang="scss" scoped>
 #layoutManage {
   height: 100%;
-//   background: red;
+    // background: red;
 }
 </style>
 
