@@ -14,6 +14,9 @@ Vue.use(ElementUI)
 Vue.use(vueDrag)
 Vue.prototype.$http = axios
 
+// 全局event bus ，方便事件传递
+window.$bus = new Vue();
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

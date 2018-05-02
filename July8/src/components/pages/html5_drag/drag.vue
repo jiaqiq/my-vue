@@ -19,7 +19,7 @@ import Container from "./Container";
 import Box from "./Box";
 import Card from "./Card";
 export default {
-  name: "html5drag",
+  name: "drag",
   components: {
     Container,
     Box,

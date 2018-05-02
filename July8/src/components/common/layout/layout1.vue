@@ -61,10 +61,10 @@ export default {
   }
   .span_r {
     height: 100%;
-    background: darkgrey;
+    background: #fafafa;
     position: relative;
     .span_rf {
-      background: orangered;
+      // background: #ccc;
       height: 50px;
       width: 100%;
       position: absolute;

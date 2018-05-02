@@ -17,10 +17,7 @@
           <a href="http://www.ruanyifeng.com/blog/2015/07/flex-examples.html" target="_blank">Flex实例</a>
         </el-menu-item>
       </el-submenu>
-      <el-menu-item index="2" :route="{ path:'/test' }">测试</el-menu-item>
-      <el-menu-item index="3" :route="{ path:'/drag' }">Vue-dragging</el-menu-item>
-      <el-menu-item index="4" :route="{ path:'/html5drag' }">HTML5-drag</el-menu-item>
-      <el-menu-item index="4" :route="{ path:'/content/layoutTest' }">管理</el-menu-item>
+      <el-menu-item index="4" :route="{ path:'/content/layoutManage' }">项目管理</el-menu-item>
     </el-menu>
   </div>
 </template>
