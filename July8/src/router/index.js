@@ -9,55 +9,74 @@ import dragging from '@/components/pages/dragging'
 import drag from '@/components/pages/html5_drag/drag'
 import home from '@/components/pages/home'
 import personList from '@/components/pages/personList'
+import login from '@/components/common/login'
+import register from '@/components/common/register'
 
 Vue.use(Router)
 
 export default new Router({
+
   routes: [{
-    path: '/',
-    name: 'index',
-    component: Index,
-    children: [{
-      path: 'content',
-      name: 'content',
-      component: content,
+      path: '/',
+      name: 'Index',
+      // 路由元信息 meta
+      meta: {
+        requireLogin: true // 添加该字段，表示进入这个路由是需要登录的
+      },
+      component: Index,
       children: [{
-          path: 'home',
-          name: 'home',
-          component: home
-        },
-        {
-          path: 'layoutManage',
-          name: 'layoutManage',
-          component: layoutManage,
-          children: [{
-              path: 'test',
-              name: 'test',
-              component: Test
-            },
-            {
-              path: 'mockTest',
-              name: 'mockTest',
-              component: mockTest
-            },
-            {
-              path: 'dragging',
-              name: 'dragging',
-              component: dragging
-            },
-            {
-              path: 'drag',
-              name: 'drag',
-              component: drag
-            },
-            {
-              path: 'personList',
-              name: 'personList',
-              component: personList
-            }
-          ]
-        }
-      ]
-    }]
-  }]
+        path: 'content',
+        name: 'content',
+        component: content,
+        children: [{
+            path: 'home',
+            name: 'home',
+            component: home
+          },
+          {
+            path: 'layoutManage',
+            name: 'layoutManage',
+            component: layoutManage,
+            children: [{
+                path: 'test',
+                name: 'test',
+                component: Test
+              },
+              {
+                path: 'mockTest',
+                name: 'mockTest',
+                component: mockTest
+              },
+              {
+                path: 'dragging',
+                name: 'dragging',
+                component: dragging
+              },
+              {
+                path: 'drag',
+                name: 'drag',
+                component: drag
+              },
+              {
+                path: 'personList',
+                name: 'personList',
+                component: personList
+              }
+            ]
+          }
+        ]
+      }]
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: login
+    },
+    {
+      path: '/register',
+      name: 'register',
+      component: register
+    }
+  ]
+
 })

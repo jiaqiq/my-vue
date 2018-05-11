@@ -31,7 +31,7 @@ module.exports = {
     proxyTable: {
       // proxy all requests starting with /api to jsonplaceholder
       '/api': {
-        target: 'http://www.mockapi.com',
+        target: 'http://127.0.0.1:3000',
         changeOrigin: true,
         pathRewrite: {
           '^/api': ''

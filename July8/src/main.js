@@ -13,6 +13,7 @@ Vue.config.productionTip = false
 Vue.use(ElementUI)
 Vue.use(vueDrag)
 Vue.prototype.$http = axios
+// axios.defaults.baseURL = '/api'
 
 // 全局event bus ，方便事件传递
 window.$bus = new Vue();
