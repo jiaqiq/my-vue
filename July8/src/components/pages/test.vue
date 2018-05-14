@@ -25,7 +25,14 @@ export default {
     },
     methods: {
         getNodeText() {
-          this.$http.get("/api/users/addUser?name=aaa&age=18&teacher=王老师").then(res => {
+          let data = {
+            params: {
+              name:'abc',
+              age: 18,
+              teacher: '赵老师'
+            }
+          }
+          this.$http.get("/api/users/addUser", data).then(res => {
             console.log(127, res)
             this.result = res.data;
           })
@@ -34,7 +41,10 @@ export default {
           })
         },
         delData() {
-          this.$http.post("/api/users/delUser?id=2").then(res => {
+          let data = {
+            id:30
+          }
+          this.$http.post("/api/users/delUser", data).then(res => {
             console.log('delete', res)
             this.result = res.data;
           })
@@ -43,13 +53,13 @@ export default {
         })
         },
         update() {
-          // let data = {
-          //   id:5,
-          //   name:'更新',
-          //   age: 28,
-          //   teacher: '刘老师'
-          // }
-          this.$http.post("/api/users/updateUser?id=21&name=李四&age=24&teacher=刘老师").then(res => {
+          let data = {
+            id:33,
+            name:'更新2',
+            age: 28,
+            teacher: '刘老师'
+          }
+          this.$http.post("/api/users/updateUser", data).then(res => {
             console.log('update', res) 
             this.result = res.data;
           })
@@ -58,7 +68,10 @@ export default {
           })
         },
         selectData() {
-          this.$http.post("api/users/selectUser?id=88").then(res => {
+          let data = {
+            id:100
+          }
+          this.$http.post("api/users/selectUser", data).then(res => {
             console.log('selectData', res)
             this.result = res.data;
           })
