@@ -2,9 +2,10 @@
   <div class="box">
     <el-dialog title="收货地址" :visible.sync="dialogTableVisible">
       <el-table :data="gridData">
-        <el-table-column property="date" label="日期" width="150" header-align="center"></el-table-column>
+        <el-table-column property="id" label="id" width="200" header-align="center"></el-table-column>
         <el-table-column property="name" label="姓名" width="200" header-align="center"></el-table-column>
-        <el-table-column property="address" label="地址" header-align="center"></el-table-column>
+        <el-table-column property="age" label="年龄" width="200" header-align="center"></el-table-column>
+        <el-table-column property="teacher" label="老师" header-align="center"></el-table-column>
       </el-table>
       <div slot="footer" class="dialog-footer">
           <el-button @click="dialogTableVisible = false">取 消</el-button>
@@ -41,7 +42,17 @@ export default {
   },
   methods: {
     getTableData() {
-      this.gridData = gridData;
+      // this.gridData = gridData; 
+      let data = {
+        id: 100
+      }
+      this.$http.post("api/users/selectUser", data).then(res => {
+        console.log(res)
+        this.gridData = res.data.result;
+      })
+      .catch(err => {
+        console.log(err)
+      })
     }
   }
 };

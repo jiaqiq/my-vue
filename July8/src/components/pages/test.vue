@@ -1,12 +1,27 @@
 <template>
     <div id="test">
         <h3>测试node</h3>
-        <button type="primary" @click="getNodeText">增加数据</button>
-        <button type="primary" @click="delData">删除数据</button>
-        <button type="primary" @click="update">修改数据</button>
-        <button type="primary" @click="selectData">查询数据</button>
-        <input type="text" v-model="wsData">
+        <el-button size="small" type="primary" @click="getNodeText">增加数据</el-button>
+        <el-button size="small" type="primary" @click="delData">删除数据</el-button>
+        <el-button size="small" type="primary" @click="update">修改数据</el-button>
+        <el-button size="small" type="primary" @click="selectData">查询数据</el-button>
+        <el-input type="text" v-model="wsData"></el-input>
         <div>{{result}}</div>
+        <div>{{selectResult}}</div>
+
+        <el-upload
+          class="upload-demo"
+          action="/api/upload/uploads"
+          :on-preview="handlePreview"
+          :on-remove="handleRemove"
+          :before-remove="beforeRemove"
+          multiple
+          :limit="3"
+          :on-exceed="handleExceed"
+          :file-list="fileList">
+          <el-button size="small" type="primary">点击上传</el-button>
+          <div slot="tip" class="el-upload__tip">只能上传jpg/png文件，且不超过500kb</div>
+        </el-upload>
     </div>
 </template>
 
@@ -15,8 +30,10 @@ export default {
   data() {
     return {
       result: "",
+      selectResult: "",
       arr: [1, 2, 3, 4],
-      wsData: ""
+      wsData: "",
+      fileList: []
     };
   },
   mounted() {
@@ -24,6 +41,22 @@ export default {
     this.websocket();
   },
   methods: {
+    handleRemove(file, fileList) {
+      console.log(file, fileList);
+    },
+    handlePreview(file) {
+      console.log(file);
+    },
+    handleExceed(files, fileList) {
+      this.$message.warning(
+        `当前限制选择 3 个文件，本次选择了 ${
+          files.length
+        } 个文件，共选择了 ${files.length + fileList.length} 个文件`
+      );
+    },
+    beforeRemove(file, fileList) {
+      return this.$confirm(`确定移除 ${file.name}？`);
+    },
     websocket() {
       let ws = new WebSocket("ws://localhost:8181");
       ws.onopen = () => {
@@ -33,7 +66,7 @@ export default {
       };
       ws.onmessage = evt => {
         console.log("数据已接收...");
-        console.log('服务端返回', evt.data)
+        console.log("服务端返回", evt.data);
         this.result = evt.data;
       };
       ws.onclose = function() {
@@ -102,10 +135,10 @@ export default {
         id: 100
       };
       this.$http
-        .post("api/users/selectUser", data)
+        .post("api/users/selectUserById", data)
         .then(res => {
           console.log("selectData", res);
-          this.result = res.data;
+          this.selectResult = res.data;
         })
         .catch(err => {
           console.log(err);

@@ -4,7 +4,6 @@ import Index from '@/components/pages/index'
 import content from '@/components/pages/content'
 import layoutManage from '@/components/pages/layoutManage'
 import Test from '@/components/pages/test'
-import mockTest from '@/components/pages/mockTest'
 import dragging from '@/components/pages/dragging'
 import drag from '@/components/pages/html5_drag/drag'
 import home from '@/components/pages/home'
@@ -41,11 +40,6 @@ export default new Router({
                 path: 'test',
                 name: 'test',
                 component: Test
-              },
-              {
-                path: 'mockTest',
-                name: 'mockTest',
-                component: mockTest
               },
               {
                 path: 'dragging',
