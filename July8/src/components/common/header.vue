@@ -18,27 +18,35 @@
         </el-menu-item>
       </el-submenu>
       <el-menu-item index="4" :route="{ path:'/content/layoutManage' }">项目管理</el-menu-item>
+      <el-menu-item index="" @click="showThemeDialog">切换主题色</el-menu-item>
     </el-menu>
+    <color-dialog :colorDialog="showColorDialog"></color-dialog>
   </div>
 </template>
 
 <script>
 import content from '@/components/pages/content'
 import Test from '@/components/pages/test'
+import colorDialog from '@/components/common/dialog/color_dialog'
 export default {
   components: {
     content,
-    Test
+    Test,
+    colorDialog
   },
   data() {
     return {
       activeIndex: '0',
+      showColorDialog: false,
     };
   },
   methods: {
     handleSelect(key, keyPath) {
       console.log('key, keyPath', key, keyPath)
-    }
+    },
+    showThemeDialog () {
+        this.showColorDialog = !this.showColorDialog;
+    },
   }
 }
 </script>
