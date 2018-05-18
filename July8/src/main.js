@@ -4,11 +4,13 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import ElementUI from 'element-ui'
-import 'element-ui/lib/theme-default/index.css'
+import 'element-ui/lib/theme-chalk/index.css'
 import mock from './mock/mock'
 import axios from 'axios'
 import vueDrag from 'vue-dragging'
 import echarts from 'echarts'
+//主题
+import './assets/scss/element-variables.scss'
 
 Vue.config.productionTip = false
 Vue.use(ElementUI)
