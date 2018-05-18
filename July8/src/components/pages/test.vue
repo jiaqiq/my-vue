@@ -6,6 +6,8 @@
         <el-button size="small" type="primary" @click="update">修改数据</el-button>
         <el-button size="small" type="primary" @click="selectData">查询数据</el-button>
         <el-input type="text" v-model="wsData"></el-input>
+        <!-- <el-button @click="showFiles">showFiles</el-button>
+        <el-button @click="fileDownload">fileDownload</el-button> -->
         <div>{{result}}</div>
         <div>{{selectResult}}</div>
 
@@ -41,6 +43,16 @@ export default {
     this.websocket();
   },
   methods: {
+    showFiles() {
+      this.$http.get("/api/upload/files").then(res => {
+        console.log(res)
+      })
+    },
+    fileDownload() {
+      this.$http.get("/api/upload/files/:QQ截图20180516140734.jpg").then(res => {
+        console.log(res)
+      })
+    },
     handleRemove(file, fileList) {
       console.log(file, fileList);
     },
