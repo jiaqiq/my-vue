@@ -24,6 +24,9 @@
           <el-button size="small" type="primary">点击上传</el-button>
           <div slot="tip" class="el-upload__tip">只能上传jpg/png文件，且不超过500kb</div>
         </el-upload>
+        <div class="echarts">
+          <div id="myChart" :style="{width: '300px', height: '300px'}"></div>
+        </div>
     </div>
 </template>
 
@@ -35,23 +38,53 @@ export default {
       selectResult: "",
       arr: [1, 2, 3, 4],
       wsData: "",
-      fileList: []
+      fileList: [],
+      // 指定图表的配置项和数据
+      option: {
+        title: {
+          text: "在Vue中使用"
+        },
+        tooltip: {},
+        legend: {
+          data: ["销量"]
+        },
+        xAxis: {
+          data: ["衬衫", "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子"]
+        },
+        yAxis: {},
+        series: [
+          {
+            name: "销量",
+            type: "bar",
+            data: [5, 20, 36, 10, 10, 20]
+          }
+        ]
+      }
     };
   },
   mounted() {
     // this.getResult();
-    this.websocket();
+    // this.websocket();
+    this.drawLine();
   },
   methods: {
+    drawLine() {
+      // 基于准备好的dom，初始化echarts实例
+      let myChart = this.$echarts.init(document.getElementById("myChart"));
+      // 绘制图表
+      myChart.setOption(this.option);
+    },
     showFiles() {
       this.$http.get("/api/upload/files").then(res => {
-        console.log(res)
-      })
+        console.log(res);
+      });
     },
     fileDownload() {
-      this.$http.get("/api/upload/files/:QQ截图20180516140734.jpg").then(res => {
-        console.log(res)
-      })
+      this.$http
+        .get("/api/upload/files/:QQ截图20180516140734.jpg")
+        .then(res => {
+          console.log(res);
+        });
     },
     handleRemove(file, fileList) {
       console.log(file, fileList);

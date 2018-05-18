@@ -8,11 +8,13 @@ import 'element-ui/lib/theme-default/index.css'
 import mock from './mock/mock'
 import axios from 'axios'
 import vueDrag from 'vue-dragging'
+import echarts from 'echarts'
 
 Vue.config.productionTip = false
 Vue.use(ElementUI)
 Vue.use(vueDrag)
 Vue.prototype.$http = axios
+Vue.prototype.$echarts = echarts
 // axios.defaults.baseURL = '/api'
 
 // 全局event bus ，方便事件传递
