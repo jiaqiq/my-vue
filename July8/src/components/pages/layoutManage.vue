@@ -33,15 +33,10 @@ export default {
     };
   },
   mounted() {
-    this.getListTotal();
+    
   },
   methods: {
-    getListTotal() {
-      this.$http("/api/personList").then(res => {
-        console.log(222, res);
-        this.total = res.data.tableData.length;
-      });
-    }
+    
   }
 };
 </script>

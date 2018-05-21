@@ -20,19 +20,19 @@
       <el-menu-item index="4" :route="{ path:'/content/layoutManage' }">项目管理</el-menu-item>
       <el-menu-item index="" @click="showThemeDialog">切换主题色</el-menu-item>
     </el-menu>
-    <color-dialog :colorDialog="showColorDialog"></color-dialog>
+    <color-box :colorDialog="showColorDialog"></color-box>
   </div>
 </template>
 
 <script>
 import content from '@/components/pages/content'
 import Test from '@/components/pages/test'
-import colorDialog from '@/components/common/dialog/color_dialog'
+import colorBox from '@/components/common/dialog/colorBox'
 export default {
   components: {
     content,
     Test,
-    colorDialog
+    colorBox
   },
   data() {
     return {

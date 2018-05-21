@@ -7,7 +7,6 @@ import Test from '@/components/pages/test'
 import dragging from '@/components/pages/dragging'
 import drag from '@/components/pages/html5_drag/drag'
 import home from '@/components/pages/home'
-import personList from '@/components/pages/personList'
 import login from '@/components/common/login'
 import register from '@/components/common/register'
 
@@ -51,11 +50,6 @@ export default new Router({
                 name: 'drag',
                 component: drag
               },
-              {
-                path: 'personList',
-                name: 'personList',
-                component: personList
-              }
             ]
           }
         ]

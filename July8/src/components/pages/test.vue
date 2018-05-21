@@ -5,7 +5,7 @@
         <el-button size="small" type="primary" @click="delData">删除数据</el-button>
         <el-button size="small" type="primary" @click="update">修改数据</el-button>
         <el-button size="small" type="primary" @click="selectData">查询数据</el-button>
-        <el-input type="text" v-model="wsData"></el-input>
+        <el-input type="text" size="mini" v-model="wsData"></el-input>
         <!-- <el-button @click="showFiles">showFiles</el-button>
         <el-button @click="fileDownload">fileDownload</el-button> -->
         <div>{{result}}</div>
