@@ -9,6 +9,7 @@ import 'element-ui/lib/theme-chalk/index.css'
 import axios from 'axios'
 import vueDrag from 'vue-dragging'
 import echarts from 'echarts'
+import store from './store'
 //主题
 // import './assets/scss/element-variables.scss'
 
@@ -26,6 +27,7 @@ window.$bus = new Vue();
 new Vue({
   el: '#app',
   router,
+  store,
   template: '<App/>',
   components: { App }
 })

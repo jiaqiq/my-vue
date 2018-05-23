@@ -6,10 +6,12 @@
         <el-button size="small" type="primary" @click="update">修改数据</el-button>
         <el-button size="small" type="primary" @click="selectData">查询数据</el-button>
         <el-input type="text" size="mini" v-model="wsData"></el-input>
+        <el-button type="primary" @click="stateFun">Vuex</el-button>
         <!-- <el-button @click="showFiles">showFiles</el-button>
         <el-button @click="fileDownload">fileDownload</el-button> -->
         <div>{{result}}</div>
         <div>{{selectResult}}</div>
+        <div>{{showState}}</div>
 
         <el-upload
           class="upload-demo"
@@ -31,13 +33,37 @@
 </template>
 
 <script>
+import { mapState, mapGetters, mapMutations, mapActions } from "vuex";
+
 export default {
+  /*多种写法如下*/
+  // computed: mapState({
+  //   count: 'count'
+  // }),
+  // computed: mapState([
+  //   "count"
+  // ]),
+  /*把count映射成count111（别名）以下是与本地计算属性合并写法 */
+  computed: {
+    localComputed () { /* ... */ },
+    ...mapState({
+      count111: 'count'
+    }),
+    // 使用对象展开运算符将 getter 混入 computed 对象中
+    ...mapGetters([
+      'doneTodos',
+      'doneTodosCount',
+      'getTodoById',
+      // ...
+    ])
+  },
   data() {
     return {
       result: "",
       selectResult: "",
       arr: [1, 2, 3, 4],
       wsData: "",
+      showState: 0,
       fileList: [],
       // 指定图表的配置项和数据
       option: {
@@ -68,6 +94,29 @@ export default {
     this.drawLine();
   },
   methods: {
+    // ...mapMutations([
+    //   'increment', // 将 `this.increment()` 映射为 `this.$store.commit('increment')`
+
+    //   // `mapMutations` 也支持载荷：
+    //   //'incrementBy' 将 `this.incrementBy(amount)` 映射为 `this.$store.commit('incrementBy', amount)`
+    // ]),
+    // ...mapMutations({
+    //   add: 'increment' // 将 `this.add()` 映射为 `this.$store.commit('increment')`
+    // }),
+    ...mapActions([
+      'increment', // 将 `this.increment()` 映射为 `this.$store.dispatch('increment')`
+    ]),
+    stateFun() {
+      // this.$store.commit('increment')
+      // this.increment();
+      // this.add();
+      this.increment();
+      this.showState = this.count111;
+      // console.log('Vuex', this.count111)
+      // console.log(111, this.doneTodos)
+      // console.log(222, this.getTodoById(2))
+      // console.log(333, this.doneTodosCount)
+    },
     drawLine() {
       // 基于准备好的dom，初始化echarts实例
       let myChart = this.$echarts.init(document.getElementById("myChart"));

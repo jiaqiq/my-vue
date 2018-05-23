@@ -115,6 +115,7 @@ export default {
           );
           this.canDownload = true
           this.writeNewStyle();
+          this.$emit('bgColor', this.primaryColor);
         } else {
           return false;
         }

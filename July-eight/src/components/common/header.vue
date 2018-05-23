@@ -1,6 +1,6 @@
 <template>
   <div id="header">
-    <el-menu :default-active="activeIndex" mode="horizontal" @select="handleSelect" router>
+    <el-menu :default-active="activeIndex" mode="horizontal" @select="handleSelect" router :background-color="bgColor">
       <el-menu-item index="0" :route="{ path:'/content/home' }">首页</el-menu-item>
       <el-submenu index="1">
         <template slot="title">学习网站</template>
@@ -20,7 +20,7 @@
       <el-menu-item index="4" :route="{ path:'/content/layoutManage' }">项目管理</el-menu-item>
       <el-menu-item index="" @click="showThemeDialog">切换主题色</el-menu-item>
     </el-menu>
-    <color-box :colorDialog="showColorDialog"></color-box>
+    <color-box :colorDialog="showColorDialog" @bgColor="bgColorFun"></color-box>
   </div>
 </template>
 
@@ -38,9 +38,13 @@ export default {
     return {
       activeIndex: '0',
       showColorDialog: false,
+      bgColor: '#fff'
     };
   },
   methods: {
+    bgColorFun(val) {
+      this.bgColor = val;
+    },
     handleSelect(key, keyPath) {
       console.log('key, keyPath', key, keyPath)
     },
