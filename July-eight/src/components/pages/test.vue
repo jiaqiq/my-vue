@@ -1,10 +1,10 @@
 <template>
     <div id="test">
         <h3>测试node</h3>
-        <el-button size="small" type="primary" @click="getNodeText">增加数据</el-button>
-        <el-button size="small" type="primary" @click="delData">删除数据</el-button>
-        <el-button size="small" type="primary" @click="update">修改数据</el-button>
-        <el-button size="small" type="primary" @click="selectData">查询数据</el-button>
+        <el-button size="small" type="primary" @click="addUser">增加数据</el-button>
+        <el-button size="small" type="primary" @click="deleteUser">删除数据</el-button>
+        <el-button size="small" type="primary" @click="updateUser">修改数据</el-button>
+        <el-button size="small" type="primary" @click="queryUser">查询数据</el-button>
         <el-input type="text" size="mini" v-model="wsData"></el-input>
         <el-button type="primary" @click="stateFun">Vuex</el-button>
         <!-- <el-button @click="showFiles">showFiles</el-button>
@@ -34,6 +34,7 @@
 
 <script>
 import { mapState, mapGetters, mapMutations, mapActions } from "vuex";
+import userApi from '@/api/user';
 
 export default {
   /*多种写法如下*/
@@ -175,7 +176,7 @@ export default {
     beforeDestroy() {
       this.over();
     },
-    getNodeText() {
+    addUser() {
       let data = {
         params: {
           name: "abc",
@@ -183,60 +184,49 @@ export default {
           teacher: "赵老师"
         }
       };
-      this.$http
-        .get("/api/users/addUser", data)
-        .then(res => {
-          console.log(127, res);
-          this.result = res.data;
-        })
-        .catch(err => {
-          console.log(127, err);
-        });
+      userApi.addUser(data).then(res => {
+        this.result = res.data;
+      })
+      .catch(err => {
+        console.log(err);
+      })
     },
-    delData() {
+    /**删除用户 */
+    deleteUser() {
       let data = {
         id: 30
       };
-      this.$http
-        .post("/api/users/delUser", data)
-        .then(res => {
-          console.log("delete", res);
-          this.result = res.data;
-        })
-        .catch(err => {
-          console.log(err);
-        });
+      userApi.deleteUser(data).then(res => {
+        this.result = res.data;
+      })
+      .catch(err => {
+        console.log(err);
+      })
     },
-    update() {
+    /**更新用户 */
+    updateUser() {
       let data = {
         id: 33,
         name: "更新2",
         age: 28,
         teacher: "刘老师"
       };
-      this.$http
-        .post("/api/users/updateUser", data)
-        .then(res => {
-          console.log("update", res);
-          this.result = res.data;
-        })
-        .catch(err => {
-          console.log(err);
-        });
+      userApi.updateUser(data).then(res => {
+        this.result = res.data;
+      })
+      .catch(err => {
+        console.log(err);
+      })
     },
-    selectData() {
-      let data = {
-        id: 100
-      };
-      this.$http
-        .post("api/users/selectUserById", data)
-        .then(res => {
-          console.log("selectData", res);
-          this.selectResult = res.data;
-        })
-        .catch(err => {
-          console.log(err);
-        });
+    /**查询单个用户 */
+    queryUser() {
+      let data = { id: 101 };
+      userApi.queryUser(data).then(res => {
+        this.selectResult = res.data;
+      })
+      .catch(err => {
+        console.log(err)
+      })
     },
     transfer(num) {
       num = parseInt(num);
