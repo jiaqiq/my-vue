@@ -28,6 +28,14 @@
         "label": "人员列表",
         "path": "personList"
       }]
+    },{
+      "id": 14,
+      "label": "联动组件",
+      "children":[{
+        "id":131, 
+        "label": "联动组件1",
+        "path": "linkage"
+      }]
     }]
   }, {
     "id": 2,

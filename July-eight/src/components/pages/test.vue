@@ -1,6 +1,6 @@
 <template>
     <div id="test">
-        <h3>测试node</h3>
+        <h3>nodejs</h3>
         <el-button size="small" type="primary" @click="addUser">增加数据</el-button>
         <el-button size="small" type="primary" @click="deleteUser">删除数据</el-button>
         <el-button size="small" type="primary" @click="updateUser">修改数据</el-button>
