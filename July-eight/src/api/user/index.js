@@ -51,5 +51,17 @@ export default {
               reject(err);
           })
       })
+  },
+  /**简易登录 */
+  login(param) {
+      return new Promise((resolve, reject) => {
+          let url = "/api/users/login";
+          $http.post(url, param).then(res => {
+              resolve(res);
+          })
+          .catch(err => {
+              reject(err);
+          })
+      })
   }
 }
