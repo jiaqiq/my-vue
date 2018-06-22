@@ -1,77 +1,40 @@
-import Vue from 'vue'
+
+// const Router = VueRouter;
 import Router from 'vue-router'
-import Index from '@/components/pages/index'
-import content from '@/components/pages/content'
-import layoutManage from '@/components/pages/layoutManage'
-import Test from '@/components/pages/test'
-import dragging from '@/components/pages/dragging'
-import drag from '@/components/pages/html5_drag/drag'
-import home from '@/components/pages/home'
-// import login from '@/components/common/login'
-import login from '@/components/pages/login/loginSimple'
-import register from '@/components/common/register'
-import linkage from '@/components/pages/linkage/index'
+import { defaultRoutes } from './routes'
+import Vue from 'vue'
 
 Vue.use(Router)
 
-export default new Router({
-
-  routes: [{
-      path: '/',
-      name: 'Index',
-      // 路由元信息 meta
-      meta: {
-        requireLogin: true // 添加该字段，表示进入这个路由是需要登录的
-      },
-      component: Index,
-      children: [{
-        path: 'content',
-        name: 'content',
-        component: content,
-        children: [{
-            path: 'home',
-            name: 'home',
-            component: home
-          },
-          {
-            path: 'layoutManage',
-            name: 'layoutManage',
-            component: layoutManage,
-            children: [{
-                path: 'test',
-                name: 'test',
-                component: Test
-              },
-              {
-                path: 'dragging',
-                name: 'dragging',
-                component: dragging
-              },
-              {
-                path: 'drag',
-                name: 'drag',
-                component: drag
-              },
-              {
-                path: 'linkage',
-                name: 'linkage',
-                component: linkage
-              }
-            ]
-          }
-        ]
-      }]
-    },
-    {
-      path: '/login',
-      name: 'login',
-      component: login
-    },
-    {
-      path: '/register',
-      name: 'register',
-      component: register
-    }
-  ]
-
+let router = new Router({
+	routes: defaultRoutes,
 })
+
+router.beforeEach((to, from, next) => {
+	// NProgress.start();
+
+	if (to.path === '/login') {
+		next();
+	} else {
+		if (Cookies.get('token') === undefined) {
+			next('/login');
+		} else if (!!to.meta['power']) { //!!to.meta['power']
+			//在动态加载路由的情况下，刷新页面后，路由权限的加载比路→跳转慢，导致用户刷新页面后，因为没权限跳转至首页
+			next();
+		} else if (!to.name) {
+			// 路由数据没加载
+			$bus.$on('loaded-routes', () => {
+				next(to);
+			});
+		} else {
+			next({
+				name: '403'
+			});
+		}
+	}
+});
+router.afterEach((to, from) => {
+	// NProgress.done();
+});
+
+export default router

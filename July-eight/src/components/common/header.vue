@@ -19,6 +19,7 @@
       </el-submenu>
       <el-menu-item index="4" :route="{ path:'/content/layoutManage' }">项目管理</el-menu-item>
       <el-menu-item index="" @click="showThemeDialog">切换主题色</el-menu-item>
+      <el-menu-item index="" @click="signout">退出</el-menu-item>
     </el-menu>
     <color-box :colorDialog="showColorDialog" @bgColor="bgColorFun"></color-box>
   </div>
@@ -51,6 +52,11 @@ export default {
     showThemeDialog () {
         this.showColorDialog = !this.showColorDialog;
     },
+    signout() {
+      Cookies.remove('token');
+			// sessionStorage.clear();
+			this.$router.push({ path: '/login' });
+    }
   }
 }
 </script>

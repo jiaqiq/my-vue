@@ -110,14 +110,14 @@ export default {
 			}
 		}
 	},
-	// beforeRouteEnter(to, from, next) {
+	beforeRouteEnter(to, from, next) {
 
-	// 	if (Cookies.get('token')) {
-	// 		next('/index');
-	// 	} else {
-	// 		next();
-	// 	}
-	// },
+		if (Cookies.get('token')) {
+			next('/index');
+		} else {
+			next();
+		}
+	},
 	// created() {
 	// 	//type === false 内网
 	// 	this.getIp().then(res => {
@@ -211,6 +211,15 @@ export default {
 			}
 			userApi.login(data).then(res => {
 				console.log(res)
+				if(res.data.code === 200) {
+					let result = res.data.result[0];
+					let data = JSON.stringify({
+						id: result.id,
+						username: result.username
+					})
+					Cookies.set('token', data)
+                    document.location.reload(true);
+				}
 			})
 			.catch(err => {
 				console.log(err)
@@ -233,7 +242,7 @@ export default {
 			// 		});
 			// 		Cookies.set('token', data)
 			// 		// this.$router.push('index');
-			// 		document.location.reload(true);
+					// document.location.reload(true);
 			// 	} else {
 			// 		// this.reloadVerifycode();
 			// 		// this.VerificationCode = '';
