@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Index from '@/components/pages/index'
-import content from '@/components/pages/content'
+// import content from '@/components/pages/content'
 import layoutManage from '@/components/pages/layoutManage'
 import Test from '@/components/pages/test'
 import dragging from '@/components/pages/dragging'
@@ -33,63 +33,81 @@ Vue.use(Router)
       path: '/index',
       name: 'Index',
       component: Index,
-      redirect: '/index/content/home',
+      redirect: '/index/home',
       children: [{
-        path: 'content',
-        name: 'content',
-        component: content,
-        children: [{
             path: 'home',
             name: 'home',
+            meta: {
+              label: '首页',
+              power: true
+            },
             component: home
           }, 
           {
             path: 'layoutManage',
             name: 'layoutManage',
+            meta: {
+              label: '项目管理',
+              power: true
+            },
             component: layoutManage,
+            redirect: 'layoutManage/test',
             children: [{
                 path: 'test',
                 name: 'test',
+                meta: {
+                  label: '测试',
+                  power: true
+                },
                 component: Test
               },
               {
                 path: 'dragging',
                 name: 'dragging',
+                meta: {
+                  label: 'dragging',
+                  power: true
+                },
                 component: dragging
               },
               {
                 path: 'drag',
                 name: 'drag',
+                meta: {
+                  label: 'drag',
+                  power: true
+                },
                 component: drag
               },
               {
                 path: 'linkage',
                 name: 'linkage',
+                meta: {
+                  label: 'linkage',
+                  power: true
+                },
                 component: linkage
-              },
-              {
-                path: '*',
-                name: '404',
-                meta: {
-                  label: '404',
-                  power: true
-                },
-                component: notFound
-              },
-              {
-                path: '403',
-                name: '403',
-                meta: {
-                  label: '403',
-                  power: true
-                },
-                component: noPower
-              }
-            ]
-          }
-        ]
+              }]
+          }, 
+          {
+            path: '*',
+            name: '404',
+            meta: {
+              label: '404',
+              power: true
+            },
+            component: notFound
+          },
+          {
+            path: '403',
+            name: '403',
+            meta: {
+              label: '403',
+              power: true
+            },
+            component: noPower
+          }]
       }]
-    }]
 
     export {
       defaultRoutes

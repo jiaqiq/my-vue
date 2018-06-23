@@ -11,8 +11,8 @@ let router = new Router({
 })
 
 router.beforeEach((to, from, next) => {
-	// NProgress.start();
-
+	NProgress.start();
+	
 	if (to.path === '/login') {
 		next();
 	} else {
@@ -34,7 +34,7 @@ router.beforeEach((to, from, next) => {
 	}
 });
 router.afterEach((to, from) => {
-	// NProgress.done();
+	NProgress.done();
 });
 
 export default router

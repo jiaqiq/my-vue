@@ -12,6 +12,9 @@ import echarts from 'echarts'
 import store from './store'
 //主题
 // import './assets/scss/element-variables.scss'
+//导入字体图标
+import './assets/iconfont/iconfont.css'
+import './assets/scss/font-awesome.css'
 
 Vue.config.productionTip = false
 Vue.use(ElementUI)

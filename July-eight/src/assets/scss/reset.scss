@@ -3,3 +3,9 @@
   height: 30px!important;
   width: 95% !important;
 }
+
+.userInput {
+  .el-input--suffix .el-input__inner {
+    padding-right: 80px;
+  }
+}

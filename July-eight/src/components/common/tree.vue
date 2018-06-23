@@ -42,9 +42,8 @@ export default {
   },
   methods: {
     handleNodeClick(data) {
-      console.log(data);
       if (!data.children) {
-        this.$router.push("/content/layoutManage/" + data.path);
+        this.$router.push(data.path);
       }
     },
     filterNode(value, data) {

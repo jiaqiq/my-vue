@@ -47,13 +47,13 @@ export default {
 
 <style lang="scss" scoped>
 #home {
-    height: 100%;
+    height: calc(100% - 61px);
     overflow: auto;
   .main {
       height: auto;
       width: 90%;
       margin: 0 auto;
-    //   background: red;
+      // background: red;
   }
   .block {
     // display: inline-block;

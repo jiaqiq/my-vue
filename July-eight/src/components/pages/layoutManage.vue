@@ -43,7 +43,7 @@ export default {
 
 <style lang="scss" scoped>
 #layoutManage {
-  height: 100%;
+  height: calc(100% - 61px);
     // background: red;
 }
 </style>

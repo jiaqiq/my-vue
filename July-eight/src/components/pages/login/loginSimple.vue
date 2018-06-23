@@ -4,17 +4,21 @@
 		<div class="login-wrapper">
 			<div class="login-content" v-loading="loading">
 				<h1 class="login-content__title">登录</h1>
-				<div class="login-form-item iconfont icon-user">
-					<input type="text" @keyup.self.enter="login" v-model="username" v-noEmpty placeholder="请输入用户名">
+				<div class="userInput">
+					<el-input type="text" @keyup.self.enter="login" v-model="username" v-noEmpty placeholder="请输入用户名">
+						<i slot="prefix" class="iconfont icon-user icu"></i>
+					</el-input>
 				</div>
-				<div class="login-form-item iconfont icon-mima">
-					<input type="password" @keyup.self.enter="login" v-model="password" v-noEmpty placeholder="请输入密码">
+				<div class="userInput">
+					<el-input type="password" @keyup.self.enter="login" v-model="password" v-noEmpty placeholder="请输入密码">
+						<i slot="prefix" class="iconfont icon-mima icu"></i>
+					</el-input>
 				</div>
-				<div class="login-form-item iconfont icon-yanzhengma login-form-item__verify" v-if="!msgPicFlag">
-					<!-- v-model="VerificationCode" -->
-					<input type="text" @keyup.self.enter="login" v-noEmpty placeholder="请输入验证码">
-					<!-- @click="reloadVerifycode" -->
-					<!-- <img :src="verifycode_url" alt="验证码"> -->
+				<div class="userInput">
+					<el-input type="text" @keyup.self.enter="login" v-noEmpty placeholder="请输入验证码">
+						<i slot="prefix" class="iconfont icon-yanzhengma icu"></i>
+						<img slot="suffix" :src="verifycode_url" alt="验证码" class="yzm">
+					</el-input>
 				</div>
 				<div class="login-form-item iconfont icon-yanzhengma login-form-item__verify" v-if="msgPicFlag">
 					<input type="text" @keyup.self.enter="login" v-model="msgCode" v-noEmpty placeholder="请输入短信验证码">
@@ -25,9 +29,6 @@
 				</div>
 				<div class="login-content__errMsg">{{errMsg}}</div>
 			</div>
-		</div>
-		<div class="login-footer">
-			<div class="login-footer__des">国金证券有限公司 沪ICP备00000000号&nbsp;&nbsp;Copyright © 2017-2018 ShangHai Big data Inc. All Rights Reserved</div>
 		</div>
 	</div>
 </template>
@@ -86,15 +87,11 @@ export default {
 			msgCode: '',
 			codeFlag: false,
 			codeText: '获取验证码',
-
-
 			msgPicFlag: false   //true短信验证码
 		}
 	},
 	directives: {
-        /**
-         *input不能为空的指令 v-noEmpty 
-         */
+		/** input不能为空的指令 v-noEmpty*/
 		noEmpty: {
 			inserted: function (el) {
 				el.addEventListener('focus', function () {
@@ -193,7 +190,7 @@ export default {
 			// 		return;
 			// 	}
 			// }
-			// this.loading = true;
+			this.loading = true;
 			this.errMsg = '';
 
 			// let data = {
@@ -207,7 +204,9 @@ export default {
 			// }
 			let data = {
 				username: this.username,
-				password: this.password
+				password: this.password,
+				login_type: 'PC',
+				token: ''
 			}
 			userApi.login(data).then(res => {
 				console.log(res)
@@ -219,6 +218,12 @@ export default {
 					})
 					Cookies.set('token', data)
                     document.location.reload(true);
+				}else {
+					this.loading = false;
+					this.$message({
+					  message: res.data.msg,
+					  type: 'error'
+					});
 				}
 			})
 			.catch(err => {
@@ -317,7 +322,21 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @import "./scss/index1.scss";
+@import "~@/assets/scss/reset.scss";
+.userInput {
+	padding: 0 10px;
+	margin-top: 10px;
+	.icu {
+		line-height: 40px;
+	}
+	.yzm {
+		height: 100%;
+	}
+}
 </style>
+
+
+
 

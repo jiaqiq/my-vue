@@ -1,7 +1,7 @@
 <template>
   <div id="header">
     <el-menu :default-active="activeIndex" mode="horizontal" @select="handleSelect" router :background-color="bgColor">
-      <el-menu-item index="0" :route="{ path:'/content/home' }">首页</el-menu-item>
+      <el-menu-item index="0" :route="{ path:'/index/home' }">首页</el-menu-item>
       <el-submenu index="1">
         <template slot="title">学习网站</template>
         <el-menu-item index="1-1">
@@ -17,7 +17,7 @@
           <a href="http://www.ruanyifeng.com/blog/2015/07/flex-examples.html" target="_blank">Flex实例</a>
         </el-menu-item>
       </el-submenu>
-      <el-menu-item index="4" :route="{ path:'/content/layoutManage' }">项目管理</el-menu-item>
+      <el-menu-item index="2" :route="{ path:'/index/layoutManage' }">项目管理</el-menu-item>
       <el-menu-item index="" @click="showThemeDialog">切换主题色</el-menu-item>
       <el-menu-item index="" @click="signout">退出</el-menu-item>
     </el-menu>
@@ -26,12 +26,10 @@
 </template>
 
 <script>
-import content from '@/components/pages/content'
 import Test from '@/components/pages/test'
 import colorBox from '@/components/common/dialog/colorBox'
 export default {
   components: {
-    content,
     Test,
     colorBox
   },
@@ -47,14 +45,14 @@ export default {
       this.bgColor = val;
     },
     handleSelect(key, keyPath) {
-      console.log('key, keyPath', key, keyPath)
+      // console.log('key, keyPath', key, keyPath)
     },
     showThemeDialog () {
         this.showColorDialog = !this.showColorDialog;
     },
     signout() {
       Cookies.remove('token');
-			// sessionStorage.clear();
+			sessionStorage.clear();
 			this.$router.push({ path: '/login' });
     }
   }
