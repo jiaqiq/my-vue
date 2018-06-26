@@ -63,5 +63,17 @@ export default {
               reject(err);
           })
       })
+  },
+   /**加载图片 */
+   loadImgs(param) {
+    return new Promise((resolve, reject) => {
+        let url = "/api/users/loadImgs";
+        $http.post(url, param).then(res => {
+            resolve(res);
+        })
+        .catch(err => {
+            reject(err);
+        })
+    })
   }
 }

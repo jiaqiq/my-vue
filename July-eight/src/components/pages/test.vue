@@ -5,8 +5,10 @@
         <el-button size="small" type="primary" @click="deleteUser">删除数据</el-button>
         <el-button size="small" type="primary" @click="updateUser">修改数据</el-button>
         <el-button size="small" type="primary" @click="queryUser">查询数据</el-button>
+        <el-button size="small" type="primary" @click="loadImgs">加载图片</el-button>
         <el-input type="text" size="mini" v-model="wsData"></el-input>
         <el-button type="primary" @click="stateFun">Vuex</el-button>
+        <img :src="imgSrc" alt="图片">
         <!-- <el-button @click="showFiles">showFiles</el-button>
         <el-button @click="fileDownload">fileDownload</el-button> -->
         <div>{{result}}</div>
@@ -35,6 +37,7 @@
 <script>
 import { mapState, mapGetters, mapMutations, mapActions } from "vuex";
 import userApi from '@/api/user';
+import uploadApi from '@/api/upload';
 
 export default {
   /*多种写法如下*/
@@ -60,6 +63,7 @@ export default {
   },
   data() {
     return {
+      imgSrc: '',
       result: "",
       selectResult: "",
       arr: [1, 2, 3, 4],
@@ -95,6 +99,16 @@ export default {
     this.drawLine();
   },
   methods: {
+    loadImgs() {
+      let data = { params: { fileName: '20180516140734.jpg'} }
+      
+      uploadApi.filesDown(data).then(res => {
+        console.log(111, res)
+      })
+      .catch(err => {
+        console.log(err);
+      })
+    },
     // ...mapMutations([
     //   'increment', // 将 `this.increment()` 映射为 `this.$store.commit('increment')`
 
