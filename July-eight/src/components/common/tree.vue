@@ -14,6 +14,7 @@
         :filter-node-method="filterNode"
         ref="tree"
         node-key="id"
+        :default-expanded-keys="[1]"
         @node-click="handleNodeClick">
     </el-tree>
   </div>

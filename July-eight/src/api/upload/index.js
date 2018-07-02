@@ -16,7 +16,7 @@ const $http = axios;
         })
     },
     /** 下载文件*/
-    filesDown(param) {
+    fileDown(param) {
         return new Promise((resolve, reject) => {
             let url = "/api/upload/file";
             $http.get(url, param).then(res => {

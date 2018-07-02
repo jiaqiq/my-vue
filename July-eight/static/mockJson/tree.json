@@ -32,9 +32,21 @@
       "id": 14,
       "label": "联动组件",
       "children":[{
-        "id":131, 
+        "id": 141, 
         "label": "联动组件1",
         "path": "linkage"
+      }]
+    }, {
+      "id": 15,
+      "label": "上传/下载",
+      "children":[{
+        "id": 151,
+        "label": "上传文件",
+        "path": "upload"
+      }, {
+        "id": 152,
+        "label": "查看文件/下载",
+        "path": "Files"
       }]
     }]
   }, {

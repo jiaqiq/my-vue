@@ -9,8 +9,8 @@
         <el-input type="text" size="mini" v-model="wsData"></el-input>
         <el-button type="primary" @click="stateFun">Vuex</el-button>
         <img :src="imgSrc" alt="图片">
-        <!-- <el-button @click="showFiles">showFiles</el-button>
-        <el-button @click="fileDownload">fileDownload</el-button> -->
+        <el-button @click="showFiles">showFiles</el-button>
+        <!-- <el-button @click="fileDownload">fileDownload</el-button> -->
         <div>{{result}}</div>
         <div>{{selectResult}}</div>
         <div>{{showState}}</div>
@@ -101,9 +101,18 @@ export default {
   methods: {
     loadImgs() {
       let data = { params: { fileName: '20180516140734.jpg'} }
-      
+
       uploadApi.filesDown(data).then(res => {
         console.log(111, res)
+      })
+      .catch(err => {
+        console.log(err);
+      })
+    },
+    showFiles() {
+      let data = {};
+      uploadApi.files(data).then(res => {
+        console.log(res)
       })
       .catch(err => {
         console.log(err);
@@ -137,11 +146,6 @@ export default {
       let myChart = this.$echarts.init(document.getElementById("myChart"));
       // 绘制图表
       myChart.setOption(this.option);
-    },
-    showFiles() {
-      this.$http.get("/api/upload/files").then(res => {
-        console.log(res);
-      });
     },
     fileDownload() {
       this.$http

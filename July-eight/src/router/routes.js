@@ -11,6 +11,8 @@ import home from '@/components/pages/home'
 // const Login = () => import ('../components/Customer/pages/login/index1');
 import login from '@/components/pages/login/loginSimple'
 import linkage from '@/components/pages/linkage/index'
+const upload = () => import ('@/components/pages/upload');
+const files = () => import ('@/components/pages/upload/files');
 //error
 const notFound = () => import ('@/components/pages/error/404');
 const noPower = () => import ('@/components/pages/error/403');
@@ -87,6 +89,24 @@ Vue.use(Router)
                   power: true
                 },
                 component: linkage
+              },
+              {
+                path: 'upload',
+                name: 'upload',
+                meta: {
+                  label: 'upload',
+                  power: true
+                },
+                component: upload
+              },
+              {
+                path: 'files',
+                name: 'files',
+                meta: {
+                  label: 'files',
+                  power: true
+                },
+                component: files
               }]
           }, 
           {
